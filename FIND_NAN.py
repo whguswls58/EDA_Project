@@ -35,6 +35,8 @@ def data_index(data):
             data_table.append(k)
 data_index(table_data)
 
+
+##Find " 미조사 " 후 갯수 파악하기. 
 data=str(table_data[0].values)
 result=re.findall("미조사", data)
 result.count("미조사")
