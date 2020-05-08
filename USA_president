@@ -1,0 +1,15 @@
+import pandas as pd
+
+
+DATA_usa = pd.read_csv("approval_topline.csv")["approve_estimate"][:237][2::3][::-1].reset_index(drop = True)
+#데이터셋에서 all poll 기준으로 평균 지지율을 DATA_usa로 잡음
+
+DATA_day = pd.read_csv("approval_topline.csv")["modeldate"][:237][2::3][::-1].reset_index(drop = True)
+#데이터셋에서 날짜를 잡아옴.
+
+USA_datas = {}
+USA_datas["날짜"] = DATA_day
+USA_datas["미국지지율"] = DATA_usa
+USA_df =pd.DataFrame(USA_datas)[:71]
+#5월 7일 까지 있어서 뒤에 잇는거 날림 
+print(USA_df)
